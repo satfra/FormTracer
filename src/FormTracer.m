@@ -627,7 +627,7 @@ checkFormExecutable[quietMode_:False]:=Module[{formProcessResult,formResponse,fo
 (*Don't check whether FORM works if it was already checked.*)
 If[formChecked,Return[True(*=formChecked*)]];
 (*Check if FORM works*)
-formProcessResult=Quiet[RunProcess[{formExecutable,"-v"}]];
+formProcessResult=Quiet[RunProcess[{Sequence@@StringSplit[formExecutable," "],"-v"}]];
 formResponse=formProcessResult["StandardOutput"];
 formExitCode=formProcessResult["ExitCode"];
 formChecked=formExitCode===0;
@@ -2488,7 +2488,7 @@ format=If[Length[filename]>2,filename[[3]],"C"];
 retValVariableLists=generateFormFile[convertInput[expr,format==="mathematica"],formFile,resFile,optimization,format,prerepl,postrepl,bracket,exportResVar,exportTmpVar,exportVarType];
 
 measureEvaluationTime[debuggingMode,"Time needed by Form: ",
-formProcessResult=RunProcess[{formExecutable,"-q",formFile}];
+formProcessResult=RunProcess[{Sequence@@StringSplit[formExecutable," "],"-q",formFile}];
 (* check exit code *)
 If[formProcessResult["ExitCode"]=!=0,Message[FormTrace::formeexitcode,formProcessResult["ExitCode"]]];
 (* check output string for error messages *)

@@ -3,6 +3,11 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.8 (***********)
+- Bugfix: Allows again for inserting arguments to be passed to the form executable via DefineFormExecutable[].
+  RunProcess requires to put arguments into separate List elements, which has been fixed by splicing a given expression.
+
+
 (***********) FormTracer Version 2.3.7 (***********)
 - Bugfix: fixes #5, when PartialTrace operated on an expression with only fundamental and no
   adjoint color indices, Kronecker deltas of fundamental color were converted to adjoint ones.
