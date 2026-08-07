@@ -6821,14 +6821,13 @@ Cell[BoxData[
       RowBox[{"expr_Times", ",", "indicesFromExprRules_List"}], "]"}], ":=", 
      RowBox[{"getOpenIndices", "[", 
       RowBox[{
-       RowBox[{"List", "@@", 
+       RowBox[{
         RowBox[{"(", 
-         RowBox[{
-          RowBox[{"expr", "//.", 
-           RowBox[{
-            RowBox[{"Plus", "[", 
-             RowBox[{"firstTerm_", ",", "__"}], "]"}], "\[RuleDelayed]", 
-            "firstTerm"}]}], "//", "removeSquaredTensors"}], ")"}]}], ",", 
+         RowBox[{"List", "@@", "expr"}], ")"}], "//.", 
+        RowBox[{
+         RowBox[{"Plus", "[", 
+          RowBox[{"firstTerm_", ",", "__"}], "]"}], "\[RuleDelayed]", 
+         "firstTerm"}], "//", "removeSquaredTensors"}], ",", 
        "indicesFromExprRules"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
